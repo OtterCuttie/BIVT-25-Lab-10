@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -32,8 +32,6 @@ namespace Lab10.Blue
             if (obj == null) return;
             if (string.IsNullOrWhiteSpace(FullPath)) return;
 
-            Directory.CreateDirectory(Path.GetDirectoryName(FullPath)!);
-
             using (var writer = new StreamWriter(FullPath))
             {
                 if (obj is Lab9.Blue.Task2 task2)
@@ -52,11 +50,8 @@ namespace Lab10.Blue
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (line.Contains(":"))
-                    {
-                        var parts = line.Split(new[] { ':' }, 2);
-                        dict[parts[0].Trim()] = parts[1].Trim();
-                    }
+                    var parts = line.Split(new[] { ':' }, 2);
+                    dict[parts[0].Trim()] = parts[1].Trim();
                 }
             }
 
