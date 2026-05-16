@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,7 +45,6 @@ namespace Lab10
         public virtual void ChangeFileExtension(string newExtention)
         {
             string newFilePath = Path.ChangeExtension(FullPath, newExtention);
-            if (File.Exists(newFilePath)) return;
             File.Move(FullPath, newFilePath);
             FileExtension = newExtention;
         }
@@ -60,11 +59,6 @@ namespace Lab10
 
             if (!File.Exists(oldPath))
             {
-                if (!string.IsNullOrEmpty(FolderPath) && !Directory.Exists(FolderPath))
-                {
-                    Directory.CreateDirectory(FolderPath);
-                }
-
                 using (File.Create(oldPath)) { }
             }
 
@@ -75,7 +69,6 @@ namespace Lab10
             if (File.Exists(oldPath) && oldExtension != format)
             {
                 File.Move(oldPath, newPath);
-
             }
         }
         public void ChangeFileName(string newFileName)
@@ -85,11 +78,6 @@ namespace Lab10
 
         public void CreateFile()
         {
-            if (!string.IsNullOrEmpty(FolderPath) && !Directory.Exists(FolderPath))
-            {
-                Directory.CreateDirectory(FolderPath);
-            }
-
             if (!File.Exists(FullPath))
             {
                 using (File.Create(FullPath)) { }
