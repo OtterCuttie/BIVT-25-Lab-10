@@ -1,4 +1,4 @@
-﻿using Lab9.Blue;
+using Lab9.Blue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,7 +89,7 @@ namespace Lab10.Blue
         }
         public void ChangeManager(BlueFileManager<T> newManager)
         {
-            var folderPath = Path.Combine(_manager.FolderPath ?? Directory.GetCurrentDirectory(), _manager.Name);
+            var folderPath = Path.Combine(_manager.FolderPath, _manager.Name);
             Directory.CreateDirectory(folderPath);
             newManager.SelectFolder(folderPath);
             _manager = newManager;
