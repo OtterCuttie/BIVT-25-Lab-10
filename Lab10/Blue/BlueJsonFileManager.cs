@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +50,7 @@ namespace Lab10.Blue
             if (string.IsNullOrWhiteSpace(type)) return null;
 
             Type t = Type.GetType(type);
-            if (t == null || !typeof(T).IsAssignableFrom(t)) return null; 
+            if (t == null || !typeof(T).IsAssignableFrom(t)) return null;
 
             jobj.Remove("Type");
             var obj = jobj.ToObject(t);
